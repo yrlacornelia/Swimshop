@@ -1,4 +1,5 @@
-import Navbar from "./navbar";
+
+import Navbar from "./navbar/navbar";
 import React from "react";
 const Layout = ({ children }: any) => {
   return (

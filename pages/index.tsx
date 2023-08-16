@@ -1,12 +1,17 @@
+import SalesPitch from '@/components/home/salesPitch'
+import SlideShow from '@/components/home/slider'
+import WhiteBtn from '@/components/reusableComponents/whiteBtn'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
-
 export default function Home() {
   return (
-    <main>
-      <p>hi</p>
-    </main>
+//     <main className='relative'>
+//       <div className='absolute  w-full h-96 bg-black opacity-30'></div>
+//         <div className="bg-fill bg-no-repeat bg-center bg-[url('/images/hero.jpeg')] w-full h-96  "></div>
+// {/* <Image src={"/images/hero.jpg"} width={100} height={100}/>  */}
+//     </main>
+<div className='flex gap-20 mb-60 flex-col'>
+<SalesPitch />
+<SlideShow/>
+</div>
   )
 }
