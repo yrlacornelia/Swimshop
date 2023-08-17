@@ -1,3 +1,5 @@
+import Collaboration from '@/components/home/Collaboration'
+import Instagram from '@/components/home/instagram'
 import SalesPitch from '@/components/home/salesPitch'
 import SlideShow from '@/components/home/slider'
 import WhiteBtn from '@/components/reusableComponents/whiteBtn'
@@ -12,6 +14,8 @@ export default function Home() {
 <div className='flex gap-20 mb-60 flex-col'>
 <SalesPitch />
 <SlideShow/>
+<Collaboration /> 
+<Instagram />
 </div>
   )
 }

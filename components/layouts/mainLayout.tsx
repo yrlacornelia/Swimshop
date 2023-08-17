@@ -1,4 +1,5 @@
 
+import Footer from "./footer";
 import Navbar from "./navbar/navbar";
 import React from "react";
 const Layout = ({ children }: any) => {
@@ -8,6 +9,8 @@ const Layout = ({ children }: any) => {
       <div className=""> 
       {children}
       </div>
+      
+      <Footer/>
   
     </>
   );

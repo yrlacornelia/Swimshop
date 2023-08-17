@@ -13,7 +13,7 @@ const config: Config = {
         blue: {
           DEFAULT: '#A0E4F1',
           light: ' #F1FAFB',
-          dark:  ' #4993FA'
+          dark:  ' #005986'
         }, 
         grey: {
           DEFAULT: '#f4f4f4',
