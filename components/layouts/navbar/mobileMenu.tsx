@@ -26,12 +26,13 @@ const MobileMenu = () => {
 
             </div>
             <div
-                className={`transition-opacity duration-300 ${openNav ? 'opacity-30' : 'opacity-0'
-                    } transform bg-black absolute top-0 right-0  h-full w-4/5 `}
+                className={`transition-opacity duration-300 opacity-30  ${openNav ? 'flex' : 'hidden'
+                    }
+                   transform bg-black absolute z-10 top-0 right-0  h-full w-full `}
             >
             </div>
             <div className={`transition-transform duration-500 ${openNav ? 'translate-x-0' : '-translate-x-full'
-                }  absolute top-0 left-0 h-full w-4/5 bg-white`}
+                }  absolute top-0 z-20 left-0 h-full w-4/5 bg-white`}
             >
                 <div >
                     <div>               <button onClick={() => setOpenNav(!openNav)} >

@@ -8,7 +8,7 @@ const Instagram = () => {
         #DiveHaven in your instagram post
         </h3>
         <div className="flex flex-col md:flex-row justify-center gap-5 items-center md:items-start">
-            <div className="border"> <Image alt="insta" width={400} src="/images/noimage.png" height={300} />
+            <div className="border m-5"> <Image alt="insta" width={400} src="/images/noimage.png" height={300} />
             </div>
             <div className="" >
             <div className="flex gap-5 w-full justify-center "><Image alt="insta" width={200} className="w-1/3" src="/images/noimage.png" height={200} /> <Image alt="insta" width={200} className="w-1/3" src="/images/noimage.png" height={200} /></div> 

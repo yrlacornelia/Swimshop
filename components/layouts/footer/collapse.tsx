@@ -16,7 +16,7 @@ const Dropdown = () => {
 
   const help = () => {
     return (
-      <>    <div className="mt-2">
+      <>    <div className="mt-2 ">
 
         <ul>
           <li>My account</li>
@@ -41,9 +41,18 @@ const Dropdown = () => {
   }
   const newsletter = () => {
     return (<div className="">
-      <h4>Receive our newsletter</h4>
-      <input></input>
-      <div className="mt-5 flex flex-col items-center justify-center">   <p>Follow us!</p>
+      <h4 className="">Receive our newsletter</h4>
+      <div className="flex">     <label>
+        <input size={30}
+          required
+          className="p-2 text-sm bg-white outline-none border-gray border w-full"
+          type="email"
+          value={"your email adress"} />
+      </label>
+        <button className=" px-3 text-sm bg-black text-white">submit</button>
+      </div>
+
+      <div className="mt-5 flex flex-col items-center justify-center">   <h4>Follow us!</h4>
         <div className="flex mt-2 gap-5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-8 h-8">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
         </svg>
@@ -65,15 +74,26 @@ const Dropdown = () => {
       <div className="text-center md:w-1/4"><h2>DIVE HAVEN</h2></div>
 
       <div className="flex flex-col md:hidden">
-        <h4 className="" onClick={toggleOpen} >Help</h4>
-        {open && <div >
-          {help()}
-        </div>}
-        <h4 className="" onClick={toggleOpenSecond} >Corporate Information</h4>
-        {openSecond && <div >
-          {information()}
-        </div>}
-        {newsletter()}
+        <div className="mb-2">
+          <button onClick={toggleOpen} className="flex  w-full justify-between"><h4 className=""  >Help</h4> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          </button>
+
+          {open && <div >
+            {help()}
+          </div>}</div>
+        <div className="mb-5">
+          <button className="w-full flex justify-between" onClick={toggleOpenSecond}>   <h4 className=""  >Corporate Information</h4>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          </button>
+          {openSecond && <div >
+            {information()}
+          </div>}</div>
+        <div>
+          {newsletter()}</div>
       </div>
 
 
