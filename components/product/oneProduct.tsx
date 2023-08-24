@@ -2,33 +2,36 @@ import Searchbar from "../layouts/navbar/inputfield";
 import SlideShow from "./components/slider";
 
 const OneProduct = () => {
-    return ( <>
-    <div className="flex flex-col md:flex-row justify-center ">
-      <SlideShow/>
-        <div className="flex flex-col mt-20  w-1/3">
-          <div className="flex gap-10 justify-between">
-            <p>nike</p><p><b>299 kr</b></p>
-            </div>
-            <p><b>Freestyler bikini</b></p>
-            <Searchbar />
-            <p>color</p>
-            <button className="w-10 bg-pink "></button>
-            <Searchbar />
-            <h3>Product description</h3>
-            <p><b>bikini lorem</b></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et nulla malesuada sollicitudin sapien, diam sit non. Quis erat tristique quis nunc. Lectus amet in nascetur pretium risus massa sapien. Sed leo imperdiet id risus lacinia duis odio.</p>
-            <h3>details</h3>
-            <p><b>Composititon: </b>96% Polyester and 4% Spandex
-<br></br><b>Brand: </b><br></br>
-<b>Color:</b> Pink </p>
+  return (<>
+    <div className="flex flex-col md:flex-row mt-5 ">
+      <SlideShow />
+      <div className="flex flex-col  p-10 md:p-0 md:w-1/3 md:mr-10">
+        <div className="flex gap-10 justify-between ">
+          <p className="font-light"> nike</p> <p className="font-semibold">299 kr</p>
         </div>
-        <div></div>
+        <p className="font-semibold mb-5">Freestyler bikini </p>
+
+        <Searchbar />
+        <div className="mb-5 mt-5">
+          <p>color</p></div>
+        <Searchbar />
+        
+        <h4 className="mt-7 mb-2">Product description</h4>
+        <h4>bikini lorem</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et nulla malesuada sollicitudin sapien, diam sit non. Quis erat tristique quis nunc. Lectus amet in nascetur pretium risus massa sapien. Sed leo imperdiet id risus lacinia duis odio.</p>
+        <div className="flex gap-2 mt-2">        
+          <h4 >Composititon:</h4>
+          <p>96% Polyester and 4% Spandex</p> 
+          </div>
+
+      </div>
+      <div></div>
 
 
     </div>
-    
-    
-    </> );
+
+
+  </>);
 }
- 
+
 export default OneProduct;

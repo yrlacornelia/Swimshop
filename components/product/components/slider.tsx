@@ -70,7 +70,7 @@ useEffect(() => {
         ))}
       </Swiper>
     </div>
-    <div className="md:flex hidden m-5 flex-row gap-10">
+    <div className="md:flex hidden m-5 flex-row gap-10 ml-10">
       <div className="flex flex-col gap-5">  
           {dummyData.map((item, index) => (
          
@@ -79,14 +79,14 @@ useEffect(() => {
                 <Image
                   src={item.src}
                   alt={`Slider image ${index}`}
-                  height={70}
-                  width={70}
+                  height={120}
+                  width={120}
                   
                 />
             </div>
         ))}
         </div>
-        <div><Image alt="slider image" src={galleryImage}  height={420} width={420}/>
+        <div><Image alt="slider image" src={galleryImage}  height={500} width={500}/>
      </div>
  
     </div>

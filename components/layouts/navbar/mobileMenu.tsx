@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { navlinks } from "./navlinks";
 import Link from "next/link";
-import { Favorites, Shoppingbag } from "./icons";
+import { Favorites, Shoppingbag, Profile } from "./icons";
 import Searchbar from "./inputfield";
 const MobileMenu = () => {
     const [openNav, setOpenNav] = useState(false);
     const navList = (
         <ul className="md:flex ">
             {navlinks.map((item) => (
-                <li key={item.name} onClick={() => setOpenNav(false)} >
+                <li className="mt-5" key={item.name} onClick={() => setOpenNav(false)} >
                     <Link href={item.href}>{item.name}</Link>
                 </li>
             ))}
@@ -21,8 +21,8 @@ const MobileMenu = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg></button></div>
-                <div> <h2>DIVE HAVEN</h2></div>
-                <div className="flex"> <Shoppingbag /> <Favorites /> </div>
+                <div> <Link href={"/"}><h2>DIVE HAVEN</h2></Link></div>
+                <div className="flex"> <Profile /> <Favorites /><Shoppingbag /> </div>
 
             </div>
             <div
@@ -32,17 +32,18 @@ const MobileMenu = () => {
             >
             </div>
             <div className={`transition-transform duration-500 ${openNav ? 'translate-x-0' : '-translate-x-full'
-                }  absolute top-0 z-20 left-0 h-full w-4/5 bg-white`}
+                }  absolute top-0 z-20 left-0 h-full w-4/5 bg-blue-dark text-white`}
             >
-                <div >
-                    <div>               <button onClick={() => setOpenNav(!openNav)} >
+                    <div className=" p-5 w-full "> 
+                     <button onClick={() => setOpenNav(!openNav)} >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
-                    </button></div>
-                    <li className="list-none">Profile</li>
-            {navList}
-                </div>
+                    </button>
+                    <Link href={"/"}><h2>DIVE HAVEN</h2></Link></div>
+                    <div className="p-10 px-20">  <li className="list-none">Profile</li>
+            {navList}</div>
+                  
             </div>
 <div className="w-4/5 m-auto mt-5">
             <Searchbar /> </div>

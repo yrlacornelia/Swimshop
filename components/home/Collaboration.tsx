@@ -11,7 +11,7 @@ const Collaboration = () => {
     <h2>SOC</h2>
     <h4>Introducing SOC</h4>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus suspendisse neque adipiscing non facilisis.</p>
-    <WhiteBtn />
+    <WhiteBtn  />
 </div>
     </div> );
 }
