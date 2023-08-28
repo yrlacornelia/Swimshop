@@ -1,18 +1,35 @@
-import { colRef, getDocs, colProductRef } from "@/firebaseConfig"
-export const testingg = () => {
-getDocs(colProductRef)
-   .then((snapshot) => {
-   let arr:any = []
-   snapshot.docs.forEach((doc) => {
-     arr.push({...doc.data(), id: doc.id})
-   })
-console.log(arr)
-   
-   })
-   .catch(err => {
-     console.log(err.message)
-   })
+
+import { useState } from "react";
+import { colRef, getDocs, colProductRef } from "@/firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "@/firebaseConfig";
+import {  query, where } from "firebase/firestore";
+
+export const filterPost = async () => {
+  console.log("hi")
 }
+
+export const fetchByProducts = async (item:string) => {
+  console.log(item)
+  const menProductsQuery = query(collection(db, "products"), where("category", "==", item));
+  const menProductsSnapshot = await getDocs(menProductsQuery);
+
+  const menProductsData = menProductsSnapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id
+  }));
+
+  return menProductsData;
+};
+export const fetchingPost = async () => {
+  const querySnapshot = await getDocs(collection(db, "products"));
+  const newData = querySnapshot.docs
+  .map((doc) => ({...doc.data(), id:doc.id }));
+
+  return newData;
+};
+
+
 export const getProducts = () => {
         getDocs(colRef)
         .then((snapshot) => {
@@ -29,25 +46,4 @@ export const getProducts = () => {
 
  }
 
- export const getCategories = () => {
-      let arr:any = []
-   const hi = getDocs(colProductRef)
-    .then((snapshot) => {
-  
-    snapshot.docs.forEach((doc) => {
-      arr.push({...doc.data(), id: doc.id})
-    })
-return arr[0]
-    
-    })
-    .catch(err => {
-      console.log(err.message)
-    })
-    return arr
 
-}
-
-const filterCategories = () => {
-const test = getCategories()
-console.log(test)
-}

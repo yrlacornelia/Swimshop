@@ -1,26 +1,20 @@
 export const navlinks = [
     {
-        name: "Men",
-        href: "/",
+        label: "men",
     },
     {
-        name: "Women",
-        href: "/",
+        label: "women",
     },
     {
-        name: "Kids",
-        href: "/",
+        label: "kids",
     },
     {
-        name: "Swimgear",
-        href: "/",
+        label: "Swimgear",
     },
     {
-        name: "New in",
-        href: "/",
+        label: "new in",
     },
     {
-        name: "Contact",
-        href: "/",
+        label: "contact",
     }
 ];

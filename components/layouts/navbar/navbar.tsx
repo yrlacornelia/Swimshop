@@ -5,40 +5,23 @@ import Searchbar from "./inputfield";
 import MobileMenu from "./mobileMenu";
 import { Favorites, Profile, Shoppingbag } from "./icons";
 import BasicPopover from "./dropdown";
-import { Divider } from "@mui/material";
-import { getProducts, getCategories, testingg } from "@/utils/data";
-import { colRef, getDocs, colProductRef } from "@/firebaseConfig"
-const Navbar = () => {
+import { getProducts, fetchingPost } from "@/utils/data";
 
-    const [fetchedData, setFetchedData] = useState([]);
+const Navbar = () => {
+    const [data, setData] = useState<any>([]);
+
     useEffect(() => {
-    const testingg = () => {
-        getDocs(colProductRef)
-           .then((snapshot) => {
-           let arr:any = []
-           snapshot.docs.forEach((doc) => {
-             arr.push({...doc.data(), id: doc.id})
-           })
-        console.log(arr)
-        setFetchedData(arr[0].categories);
-           })
-           .catch(err => {
-             console.log(err.message)
-           })
-        }
-        testingg()
+      fetchingPost().then((fetchedData) => {
+        setData(fetchedData);
+        console.log(fetchedData);
+      });
     }, []);
-    console.log(fetchedData)
-    const navList = (
-        <ul className="flex gap-10 mb-5  ">
-            {fetchedData.map((item) => (
-                // <li key={item.} className="hover:font-semibold border-black">
-                //     <Link href={item.href}>{item.name}</Link>
-                // </li>
-                <li>{item}</li>
-            ))}
-        </ul>
-    );
+    console.log(data)
+  
+   const capitalize = (label:string) => {
+    const str2 = label.charAt(0).toUpperCase() + label.slice(1);
+    return str2
+   }
 
     return (<>
         <MobileMenu /> 
@@ -67,16 +50,12 @@ const Navbar = () => {
             </div>
             
             <div className=" mt-4 justify-center flex flex-row items-center">
+            <ul className="flex gap-10 mb-5  ">
+            {navlinks.map((item) => (
+                <BasicPopover href={`/categories/${item.label}`} label={capitalize(item.label)} />
+            ))}
+        </ul>
 
-        <BasicPopover />
-
-        <BasicPopover />
-
-        <BasicPopover />
-
-        <BasicPopover />
-
-        <BasicPopover />
              </div>
         </div>
     </>);

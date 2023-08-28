@@ -1,12 +1,23 @@
 import { Divider } from '@mui/material';
 import 'flowbite';
-const Dropdownmenu = () => {
+import router from 'next/router';
+interface Props {
+  href: string,
+  label: string,
+}
+
+
+const Dropdownmenu = ({href, label}:Props) => {
+  
+  const navigation = ( ) => {
+    router.push(`${href}`); 
+  }
     return ( <div className="z-30">
 
-<button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" 
+<button onClick={navigation} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" 
 data-dropdown-offset-distance={0} 
 className="focus:outline-none hover:font-medium 
-rounded-lg text-sm px-5 py-2.5  text-center inline-flex mb-0 items-center dark:bg-blue-600 dark:hover:bg-blue-700 " type="button">Dropdown hover <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+rounded-lg text-sm px-5 py-2.5  text-center inline-flex mb-0 items-center dark:bg-blue-600 dark:hover:bg-blue-700 " type="button">{label} <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
   </svg></button>
 

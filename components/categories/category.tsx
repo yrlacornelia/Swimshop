@@ -1,7 +1,23 @@
+import { fetchByProducts, fetchingPost } from "@/utils/data";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 Image
-const Test = () => {
+type Props = {
+  item: any;
+};
+
+const Category = ({item}:Props) => {
+  console.log(item.label)
+  const [data, setData] = useState<any>([]);
+  useEffect(() => {
+    fetchByProducts(item.label).then((fetchedData) => {
+      setData(fetchedData);
+      console.log(fetchedData);
+    });
+  }, [item.label]); // Dependency array now includes item.label
+
+  console.log(data)
     return ( <div className="mt-10">
         <div className="w-2/3 m-auto">   
         <h3 className="text-center mb-2">Tröjor</h3>
@@ -85,4 +101,4 @@ const Test = () => {
     </div> );
 }
  
-export default Test;
+export default Category;
