@@ -10,7 +10,6 @@ export const filterPost = async () => {
 }
 
 export const fetchByProducts = async (item:string) => {
-  console.log(item)
   const menProductsQuery = query(collection(db, "products"), where("category", "==", item));
   const menProductsSnapshot = await getDocs(menProductsQuery);
 
@@ -37,7 +36,6 @@ export const getProducts = () => {
         snapshot.docs.forEach((doc) => {
           arr.push({...doc.data(), id: doc.id})
         })
-        console.log(arr)
         
         })
         .catch(err => {

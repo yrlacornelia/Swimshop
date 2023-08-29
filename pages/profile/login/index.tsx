@@ -13,7 +13,6 @@ const LoginPage = () => {
       router.push('/profile'); 
     }
   }, [user]);
-  console.log("HI")
     return ( 
         <>
          {!user ? (

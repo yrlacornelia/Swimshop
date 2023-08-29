@@ -4,20 +4,22 @@ import { useEffect, useState } from "react";
 
 type Props = {
   item: any;
+  dropdown: string;
 };
 
-const Category = ({item}:Props) => {
-  // const [data, setData] = useState<any>([]);
-  // useEffect(() => {
-  //   fetchByProducts(item.label).then((fetchedData) => {
-  //     setData(fetchedData);
-  //   });
-  // }, [item.label]); 
-  // Dependency array now includes item.label
+const SubCategory = ({item, dropdown}:Props) => {
+//   const [data, setData] = useState<any>([]);
+//   useEffect(() => {
+//     fetchByProducts(item.label).then((fetchedData) => {
+//       setData(fetchedData);
+//     });
+//   }, [item.label]);
+   // Dependency array now includes item.label
 
     return ( <div className="mt-10">
         <div className="w-2/3 m-auto">   
         <h3 className="text-center mb-2">{item}</h3>
+        <h3 className="text-center mb-2">{dropdown}</h3>
         <p>Lorem ipsum dolor sit amet consectetur. Et nisl ullamcorper amet ultricies sit pretium consequat pretium. Et felis sit morbi elit vel tellus tortor. Consectetur curabitur fermentum venenatis consequat ut sit. Sapien ut vestibulum ultrices nunc tincidunt urna ipsum sit. Nec amet sodales euismod ipsum neque tristique pellentesque nunc. Fames adipiscing ultrices ac iaculis condimentum feugiat iaculis ut.</p>
 </div>
 <div className="w-full mt-20 px-10">
@@ -98,4 +100,4 @@ const Category = ({item}:Props) => {
     </div> );
 }
  
-export default Category;
+export default SubCategory;

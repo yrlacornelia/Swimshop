@@ -8,15 +8,13 @@ import BasicPopover from "./dropdown";
 import { getProducts, fetchingPost } from "@/utils/data";
 
 const Navbar = () => {
-    const [data, setData] = useState<any>([]);
+    // const [data, setData] = useState<any>([]);
 
-    useEffect(() => {
-      fetchingPost().then((fetchedData) => {
-        setData(fetchedData);
-        console.log(fetchedData);
-      });
-    }, []);
-    console.log(data)
+    // useEffect(() => {
+    //   fetchingPost().then((fetchedData) => {
+    //     setData(fetchedData);
+    //   });
+    // }, []);
   
    const capitalize = (label:string) => {
     const str2 = label.charAt(0).toUpperCase() + label.slice(1);
@@ -50,11 +48,17 @@ const Navbar = () => {
             </div>
             
             <div className=" mt-4 justify-center flex flex-row items-center">
-            <ul className="flex gap-10 mb-5  ">
-            {navlinks.map((item) => (
-                <BasicPopover href={`/categories/${item.label}`} label={capitalize(item.label)} />
-            ))}
-        </ul>
+            <ul className="flex gap-10 mb-5">
+  {navlinks.map((item) => (
+    <BasicPopover
+      item={item}
+      menuId={item.menuId} // Use the correct href property
+      dropdown={item.dropdownLinks}
+      label={capitalize(item.menuId)}
+    />
+  ))}
+</ul>
+
 
              </div>
         </div>
