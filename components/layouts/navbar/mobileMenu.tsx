@@ -8,8 +8,8 @@ const MobileMenu = () => {
     const navList = (
         <ul className="md:flex ">
             {navlinks.map((item) => (
-                <li className="mt-5" key={item.label} onClick={() => setOpenNav(false)} >
-                    <Link href={`/categories/${item.label}`} >{item.label}</Link>
+                <li className="mt-5" key={item.menuId} onClick={() => setOpenNav(false)} >
+                    <Link href={`/categories/${item.menuId}`} >{item.menuId}</Link>
                 </li>
             ))}
         </ul>

@@ -6,6 +6,8 @@ import MobileMenu from "./mobileMenu";
 import { Favorites, Profile, Shoppingbag } from "./icons";
 import BasicPopover from "./dropdown";
 import { getProducts, fetchingPost } from "@/utils/data";
+import Dropdownmenu from "./dropdown";
+import Dropdown from "../footer/collapse";
 
 const Navbar = () => {
     // const [data, setData] = useState<any>([]);
@@ -48,7 +50,7 @@ const Navbar = () => {
             </div>
             
             <div className=" mt-4 justify-center flex flex-row items-center">
-            <ul className="flex gap-10 mb-5">
+            {/* <ul className="flex gap-10 mb-5">
   {navlinks.map((item) => (
     <BasicPopover
       item={item}
@@ -57,9 +59,10 @@ const Navbar = () => {
       label={capitalize(item.menuId)}
     />
   ))}
+
 </ul>
-
-
+ */}
+<Dropdownmenu />
              </div>
         </div>
     </>);
