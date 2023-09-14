@@ -10,6 +10,7 @@ export const filterPost = async () => {
 }
 
 export const fetchByProducts = async (item:string) => {
+  const [data, setData] = useState<any[]>([]); // Replace 'any[]' with the actual type of your data
   const menProductsQuery = query(collection(db, "products"), where("category", "==", item));
   const menProductsSnapshot = await getDocs(menProductsQuery);
 
@@ -18,7 +19,11 @@ export const fetchByProducts = async (item:string) => {
     id: doc.id
   }));
 
-  return menProductsData;
+  menProductsData.forEach((doc) => {
+    data.push({ id: doc.id });
+  });
+
+  return data;
 };
 export const fetchingPost = async () => {
   const querySnapshot = await getDocs(collection(db, "products"));

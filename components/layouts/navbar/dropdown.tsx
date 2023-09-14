@@ -36,7 +36,7 @@ const Dropdownmenu = () => {
     <ul className="p-10 ml-20 ">
       {item.dropdownLinks.map((link, index) => (
         <li key={index} className="mb-1 p-2 text-md  hover:border-b hover:font-medium">
-          <a className='w-full' href={`#`} /* Replace with the actual link */>{link}</a>
+          <a className='w-full' href={`/categories/${item.menuId}/${link}`} /* Replace with the actual link */>{link}</a>
         </li>
       ))}
     </ul>
