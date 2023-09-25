@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
+import { useUserAuth } from "../../../utils/services";
 import Login from "../../../components/profile/logIn";
 import SignUp from "../../../components/profile/signUp";
 import { useEffect } from "react";
-import { useUserAuth } from "../../../utils/services";
 import Loader from "../../../components/reusableComponents/loader";
 
 const LoginPage = () => {

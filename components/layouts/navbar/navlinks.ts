@@ -1,7 +1,7 @@
 export const navlinks = [
     {
         menuId: "men",
-        dropdownLinks: ["men", "bottoms", "accesories", "Bikinis",
+        dropdownLinks: [ "bottoms", "accesories", "Bikinis",
             "Swimsuits",
             "Fintess",
             "View all",]
@@ -9,19 +9,19 @@ export const navlinks = [
     },
     {
         menuId: "women",
-        dropdownLinks: ["women", "bottoms", "accesories"]
+        dropdownLinks: [ "bottoms", "accesories", "tops"]
     },
     {
         menuId: "kids",
-        dropdownLinks: ["kids", "bottoms", "accesories"]
+        dropdownLinks: [ "bottoms", "accesories"]
     },
     {
         menuId: "swimgear",
-        dropdownLinks: ["swimgear", "bottoms", "accesories"]
+        dropdownLinks: [ "bottoms", "accesories"]
     },
     {
         menuId: "new In",
-        dropdownLinks: ["new", "bottoms", "accesories"]
+        dropdownLinks: [ "bottoms", "accesories"]
     },
     {
         menuId: "contact"
