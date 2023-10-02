@@ -15,31 +15,60 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+/* Add this CSS to your styles */
+/* Apply styles to the button itself */
+/* Apply styles to the button itself */
+button {
+  position: relative;
+  overflow: hidden; /* Hide overflow for the border-grow element */
+}
 
-body {
+button .border-grow {
+  position: absolute;
+  bottom: 0;
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 0; 
+  height: 2.5px; 
+  background-color: transparent;
+  transition: width 0.3s ease;
   
 }
-/* for largest headlines */
+
+button:hover .border-grow {
+  width: 80%;
+  background-color: black; 
+}
+
+
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
 h1{
-font-size: 50px;
+font-size: 40px;
+font-weight: 400;
 }
-/* logo */
+
 h2{
-font-size: 30px;
-font-weight: bold;
+  font-size: 25px;
+font-weight: 400;
 }
-/*  headlines*/
+
 h3{
-  font-size: 40px;
-font-weight: 500;
-}
-/* mini headlines  */
-h4{
-  font-size: 24;
-  font-weight: 600;
+  font-size: 25px;
+  
+
 }
 h5{
   font-weight: 500;
+  font-size: 0.9rem;
+}
+p{
+  font-size: 0.9rem;
 }
 
 @media only screen and (max-width: 600px) {

@@ -15,7 +15,7 @@ const MobileMenu = () => {
         </ul>
     );
     return ( <>
-          <div className="md:hidden bg-blue-light p-3 pt-5">
+          <div className="md:hidden border-b p-3 pt-5">
             <div className="flex flex-row justify-between items-center h-full">
                 <div> <button onClick={() => setOpenNav(!openNav)} className="z-20" >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-8 h-8">
@@ -32,7 +32,7 @@ const MobileMenu = () => {
             >
             </div>
             <div className={`transition-transform duration-500 ${openNav ? 'translate-x-0' : '-translate-x-full'
-                }  absolute top-0 z-20 left-0 h-full w-4/5 bg-blue-dark text-white`}
+                }  absolute top-0 z-20 left-0 h-full w-4/5 bg-pink text-white`}
             >
                     <div className=" p-5 w-full "> 
                      <button onClick={() => setOpenNav(!openNav)} >
@@ -45,7 +45,7 @@ const MobileMenu = () => {
             {navList}</div>
                   
             </div>
-<div className="w-4/5 m-auto mt-5">
+<div className="w-4/5 m-auto mt-5 ">
             <Searchbar /> </div>
         </div>
     </> );

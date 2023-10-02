@@ -27,22 +27,13 @@ const Category = ({item}:Props) => {
 
     fetchByProducts();
   }, [item]);
-console.log(data)
-console.log("HI")
+  function capitalizeFirstLetter(string:string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
     return ( <div className="mt-10">
-        <div className="w-2/3 m-auto">   
-        <h3 className="text-center mb-2">{item}</h3>
-        <div>
-      <h1>Categories:</h1>
-      <ul>
-        {data.map((item) => (
-          <li key={item.id}>
-            <p>{item.item}</p> 
-          </li>
-        ))}
-      </ul>
-    </div>
-        <p>Lorem ipsum dolor sit amet consectetur. Et nisl ullamcorper amet ultricies sit pretium consequat pretium. Et felis sit morbi elit vel tellus tortor. Consectetur curabitur fermentum venenatis consequat ut sit. Sapien ut vestibulum ultrices nunc tincidunt urna ipsum sit. Nec amet sodales euismod ipsum neque tristique pellentesque nunc. Fames adipiscing ultrices ac iaculis condimentum feugiat iaculis ut.</p>
+        <div className="w-2/4 m-auto">   
+        <h1 className="text-center mb-2">{capitalizeFirstLetter(item)}</h1>
+        <p>Lorem ipsum dolor sit amet consectetur. Et nisl ullamcorper amet ultricies sit pretium consequat pretium. Et felis sit morbi elit vel tellus tortor. Consectetur curabitur fermentum venenatis consequat ut sit. Sapien ut vestibulum ultrices nunc tincidunt urna ipsum sit. Nec amet sodales euismod ipsum neque tristique pellentesque nunc.</p>
 </div>
 <div className="w-full mt-20 px-10">
     <div className=" flex justify-between">

@@ -7,11 +7,13 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { useState } from "react";
+import ProductCard from "../reusableComponents/productCard";
+import { it } from "node:test";
 const SlideShow = () => {
 
   return (
     <div className="flex items-center flex-col lg:flex-row">
-      <div className="lg:w-1/4 text-left lg:pl-20 "><h3>Shop newest <br></br> now</h3></div>
+      <div className="lg:w-1/4 text-left lg:pl-20 "><h1> New <br></br> products </h1></div>
       <div className=" w-5/6  lg:w-3/4 relative flex ">
         <button className="p-5 md:flex hidden  swiper-button  image-swiper-button-prev absolute border bg-opacity-70 bg-white z-10 left-0 top-1/4 mt-10"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -63,22 +65,7 @@ const SlideShow = () => {
               <div key={index} className="h-96" >
 
                 <SwiperSlide key={index}>
-                  <div className=" flex flex-col  pb-10 ">
-                    <div className=''>
-                      <Image
-                        src={item.src}
-                        alt={"slider image "}
-                        height={100}
-                        width={50}
-                        className="w-full object-contain"
-                      />
-                    </div>
-                    <div className="text-left ">
-                      <p className="text-sm font-light text-grey-dark">{item.brand}</p>
-                      <p ><b>{item.name}</b></p>
-                      <p >{item.price}</p>
-                    </div>
-                  </div>
+                  <ProductCard src={item.src} name={item.name} price={item.price}/>
                 </SwiperSlide>
               </div>)
           })}

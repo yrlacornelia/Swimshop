@@ -12,8 +12,9 @@ const config: Config = {
       colors: {
         current: 'currentColor',
         blue: {
-          DEFAULT: '#A0E4F1',
+          DEFAULT: '#4993FA',
           light: ' #F1FAFB',
+          blueHover: '#A0E4F1',
           dark:  ' #005986'
         }, 
         grey: {
@@ -21,7 +22,12 @@ const config: Config = {
           dark: '#7f7f7f'
       
         }, 
-
+        pink: {
+          DEFAULT: '#E19898',
+          // dark: '#7f7f7f',
+          // light: '#7f7f7f',
+      
+        }
       }
     },
   },

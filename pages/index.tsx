@@ -11,11 +11,11 @@ export default function Home() {
 //         <div className="bg-fill bg-no-repeat bg-center bg-[url('/images/hero.jpeg')] w-full h-96  "></div>
 // {/* <Image src={"/images/hero.jpg"} width={100} height={100}/>  */}
 //     </main>
-<div className='flex gap-20 mb-60 flex-col'>
+<div className='flex gap-20 mb-20 flex-col'>
 <SalesPitch />
 <SlideShow/>
 <Collaboration /> 
-<Instagram />
+{/* <Instagram /> */}
 </div>
   )
 }
