@@ -34,6 +34,15 @@ button .border-grow {
   transition: width 0.3s ease;
   
 }
+  
+  #menu {
+    transform: translateX(100%);
+  }
+
+  #menu.active {
+    transform: translateX(0);
+  }
+
 
 button:hover .border-grow {
   width: 80%;
