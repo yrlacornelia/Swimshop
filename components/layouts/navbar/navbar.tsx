@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { navlinks } from "./navlinks";
 import Link from "next/link";
-import Searchbar from "./inputfield";
+import Searchbar from "./search";
 import MobileMenu from "./mobileMenu";
-import { Favorites, Profile, Shoppingbag } from "./icons";
+import { Favorites, Profile } from "./icons";
 import BasicPopover from "./dropdown";
 import { getProducts, fetchingPost } from "@/utils/data";
 import Dropdownmenu from "./dropdown";
 import Dropdown from "../footer/collapse";
+import ShoppingBag from "../../shoppingbag/shoppingbag";
 
 const Navbar = () => {
 
@@ -40,7 +41,8 @@ const Navbar = () => {
                     <Favorites />
                     </div>
                     <div className="flex flex-col items-center">
-                        <Shoppingbag />
+     {/* here */}
+     <ShoppingBag/>
 
                     </div>
 

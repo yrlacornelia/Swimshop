@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { navlinks } from "./navlinks";
 import Link from "next/link";
-import { Favorites, Shoppingbag, Profile } from "./icons";
-import Searchbar from "./inputfield";
+import { Favorites, Profile } from "./icons";
+import Searchbar from "./search";
+import ShoppingBag from "../../shoppingbag/shoppingbag";
 const MobileMenu = () => {
     const [openNav, setOpenNav] = useState(false);
     const navList = (
@@ -22,7 +23,7 @@ const MobileMenu = () => {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg></button></div>
                 <div> <Link href={"/"}><h2>DIVE HAVEN</h2></Link></div>
-                <div className="flex"> <Profile /> <Favorites /><Shoppingbag /> </div>
+                <div className="flex"> <Profile /> <Favorites /> <ShoppingBag/> </div>
 
             </div>
             <div

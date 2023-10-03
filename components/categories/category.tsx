@@ -6,6 +6,9 @@ import { colRef, getDocs, colProductRef } from "@/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "@/firebaseConfig";
 import {  query, where } from "firebase/firestore";
+import ProductCard from "../reusableComponents/productCard";
+import CategoryEmptyState from "./categroyES";
+import { Like } from "../layouts/navbar/icons";
 
 type Props = {
   item: any;
@@ -27,6 +30,7 @@ const Category = ({item}:Props) => {
 
     fetchByProducts();
   }, [item]);
+  console.log(data)
   function capitalizeFirstLetter(string:string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -41,72 +45,15 @@ const Category = ({item}:Props) => {
         <p>sort by senast inkommet </p>
     </div>
     <div>
+    {data.length === 0 ? (
+        <CategoryEmptyState />
+      ) : (
     <div className="flex gap-20 mt-10 items-center justify-center">  
-    <div className=" flex flex-col  pb-10 ">
-                    <div className=''>
-                      <Image
-                        src={"/images/noimage.png"}
-                        alt={"slider image "}
-                        height={200}
-                        width={200}
-                        className="w-full object-contain"
-                      />
-                    </div>
-                    <div className="text-left ">
-                      <p className="text-sm font-light text-grey-dark">{"item.brand"}</p>
-                      <p ><b>{"item.name"}</b></p>
-                      <p >{"item.price"}</p>
-                    </div>
-                  </div> 
-        <div className=" flex flex-col  pb-10 ">
-                    <div className=''>
-                      <Image
-                        src={"/images/noimage.png"}
-                        alt={"slider image "}
-                        height={200}
-                        width={200}
-                        className="w-full object-contain"
-                      />
-                    </div>
-                    <div className="text-left ">
-                      <p className="text-sm font-light text-grey-dark">{"item.brand"}</p>
-                      <p ><b>{"item.name"}</b></p>
-                      <p >{"item.price"}</p>
-                    </div>
+       {data.map((item) => (
+             <ProductCard  src={"/images/noimage.png"} name={item.item} price={0} />
+                   ))}
                   </div>
-                  <div className=" flex flex-col  pb-10 ">
-                    <div className=''>
-                      <Image
-                      src={"/images/noimage.png"}
-                      alt={"slider image "}
-                      height={200}
-                      width={200}
-                        className="w-full object-contain"
-                      />
-                    </div>
-                    <div className="text-left ">
-                      <p className="text-sm font-light text-grey-dark">{"item.brand"}</p>
-                      <p ><b>{"item.name"}</b></p>
-                      <p >{"item.price"}</p>
-                    </div>
-                  </div>
-                  <div className=" flex flex-col  pb-10 ">
-                    <div className=''>
-                      <Image
-                             src={"/images/noimage.png"}
-                             alt={"slider image "}
-                             height={200}
-                             width={200}
-                        className="w-full object-contain"
-                      />
-                    </div>
-                    <div className="text-left ">
-                      <p className="text-sm font-light text-grey-dark">{"item.brand"}</p>
-                      <p ><b>{"item.name"}</b></p>
-                      <p >{"item.price"}</p>
-                    </div>
-                  </div>
-                  </div>
+                  )}
     </div>
 </div>
      

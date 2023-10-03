@@ -25,7 +25,7 @@ const config: Config = {
         pink: {
           DEFAULT: '#E19898',
           // dark: '#7f7f7f',
-          // light: '#7f7f7f',
+           light: '#E198BD',
       
         }
       }
