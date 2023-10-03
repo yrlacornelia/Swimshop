@@ -33,7 +33,7 @@ const MobileMenu = () => {
             >
             </div>
             <div className={`transition-transform duration-500 ${openNav ? 'translate-x-0' : '-translate-x-full'
-                }  absolute top-0 z-20 left-0 h-full w-4/5 bg-pink text-white`}
+                }  absolute top-0 z-50 left-0 h-full w-4/5 bg-pink text-white`}
             >
                     <div className=" p-5 w-full "> 
                      <button onClick={() => setOpenNav(!openNav)} >
