@@ -2,8 +2,6 @@ import { useRouter } from 'next/router';
 import { navlinks } from '@/components/layouts/navbar/navlinks';
 import Custom404 from '../404';
 import Category from '@/components/categories/category';
-import SubCategory from '@/components/categories/subCategory';
-
 export default function CategoryPage() {
   const router = useRouter();
   const { menu: routeParams } = router.query;
@@ -25,17 +23,17 @@ console.log(menuId)
     );
   }
 
-  if (matchedMenu.dropdownLinks?.includes(dropdownLink)) {
+  // if (matchedMenu.dropdownLinks?.includes(dropdownLink)) {
   
-    return (
-      <div>
-        <SubCategory dropdown={dropdownLink} item={menuId} />
-        <p>
-          Menu: {menuId}, Dropdown Link: {dropdownLink}
-        </p>
-      </div>
-    );
-  }
+  //   return (
+  //     <div>
+  //       <SubCategory dropdown={dropdownLink} item={menuId} />
+  //       <p>
+  //         Menu: {menuId}, Dropdown Link: {dropdownLink}
+  //       </p>
+  //     </div>
+  //   );
+  // }
 
   return <Custom404 />;
 }

@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import { getDocs, colRef } from "@/firebaseConfig";
-
-import { collection } from "firebase/firestore";
-import { db } from "@/firebaseConfig";
+import router from "next/router";
 const Searchbar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [data, setData] = useState<any[]>([]); 
@@ -36,7 +33,9 @@ const Searchbar = () => {
   const handleChange = (e:any) => {
     setSearchInput(e.target.value);
   };
-
+  const navigation = () => {
+    router.push(`/search/${searchInput}`);
+  };
   const filteredCountries = countries.filter((country) => {
     const searchTerm = searchInput.toLowerCase();
     return (
@@ -44,13 +43,17 @@ const Searchbar = () => {
       country.continent.toLowerCase().includes(searchTerm)
     );
   });
-
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      navigation();
+    }
+  };
   const firstThreeFilteredCountries = filteredCountries.slice(0, 3);
   return (
     <div className="flex flex-col">
       <div className="relative z-1">
         <div className="absolute top-3 right-1">
-          <svg
+          <button  onClick={() => navigation()}> <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -63,7 +66,8 @@ const Searchbar = () => {
               stroke-linejoin="round"
               d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
             />
-          </svg>
+          </svg></button>
+         
         </div>
         <div className="border-b border-black">
           <label>
@@ -75,20 +79,21 @@ const Searchbar = () => {
               onChange={handleChange}
               value={searchInput}
               placeholder="Search "
+              onKeyDown={handleKeyPress}
             />
           </label>
         </div>
 
         <div className="absolute bg-white w-full border z-40">
       {searchInput != "" && ( // Conditional rendering based on filtered results
-          <div className="absolute bg-white w-full border z-40">
+          <ul className="absolute bg-white w-full border z-40">
             {firstThreeFilteredCountries.map((item, index) => (
-              <div key={index}>
-                <p>{item.name}</p>
-                <p>{item.continent}</p>
-              </div>
+              <li key={index} className="hover:bg-grey">
+                <button className="text-sm w-full text-left">{item.name}</button>
+              
+              </li>
             ))}
-          </div>
+          </ul>
         )}
         </div>
      
