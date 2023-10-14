@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import router from "next/router";
 const Searchbar = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [data, setData] = useState<any[]>([]); 
+  const [data, setData] = useState<any[]>([]);
+  const [selectedSuggestion, setSelectedSuggestion] = useState<number>(-1); // Initialize with -1
+
 
 //    const getProducts = () => {
 //     getDocs(colRef)
@@ -48,6 +50,25 @@ const Searchbar = () => {
       navigation();
     }
   };
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setSelectedSuggestion((prevIndex) =>
+        prevIndex < firstThreeFilteredCountries.length - 1 ? prevIndex + 1 : prevIndex
+      );
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setSelectedSuggestion((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
+    } else if (event.key === "Enter" && selectedSuggestion !== -1) {
+      event.preventDefault();
+      const selectedCountry = firstThreeFilteredCountries[selectedSuggestion];
+      setSearchInput(selectedCountry.name); // Set the input field with the selected suggestion
+      router.push(`/search/${selectedCountry.name}`); // Navigate to the selected suggestion
+    }
+    else{
+      console.log("HGU")
+    }
+  };
   const firstThreeFilteredCountries = filteredCountries.slice(0, 3);
   return (
     <div className="flex flex-col">
@@ -79,23 +100,32 @@ const Searchbar = () => {
               onChange={handleChange}
               value={searchInput}
               placeholder="Search "
-              onKeyDown={handleKeyPress}
+              onKeyDown={handleKeyDown}
             />
           </label>
         </div>
-
         <div className="absolute bg-white w-full border z-40">
-      {searchInput != "" && ( // Conditional rendering based on filtered results
+        {searchInput !== "" && (
           <ul className="absolute bg-white w-full border z-40">
             {firstThreeFilteredCountries.map((item, index) => (
-              <li key={index} className="hover:bg-grey">
-                <button className="text-sm w-full text-left">{item.name}</button>
-              
+              <li
+                key={index}
+                className={`hover:bg-grey ${selectedSuggestion === index ? "bg-blue-200" : ""}`}
+              >
+                <button
+                  className="text-sm w-full text-left"
+                  onClick={() => {
+                    setSearchInput(item.name); // Set the input field with the selected suggestion
+                    router.push(`/search/${item.name}`); // Navigate to the selected suggestion
+                  }}
+                >
+                  {item.name}
+                </button>
               </li>
             ))}
           </ul>
         )}
-        </div>
+      </div>
      
       </div>
 

@@ -1,4 +1,4 @@
-import WhiteBtn from "@/components/reusableComponents/whiteBtn";
+import WhiteBtn from "@/components/reusableComponents/buttons";
 import {
   Button,
   Card,

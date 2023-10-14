@@ -2,7 +2,7 @@ import Collaboration from '@/components/home/Collaboration'
 import Instagram from '@/components/home/instagram'
 import SalesPitch from '@/components/home/salesPitch'
 import SlideShow from '@/components/home/slider'
-import WhiteBtn from '@/components/reusableComponents/whiteBtn'
+import WhiteBtn from '@/components/reusableComponents/buttons'
 import Image from 'next/image'
 export default function Home() {
   return (

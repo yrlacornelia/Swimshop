@@ -4,6 +4,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "@/firebaseConfig";
 import {  query, where } from "firebase/firestore";
 import ProductCard from "../reusableComponents/productCard";
+//fuse.js
 
 type Props = {
     item: any;

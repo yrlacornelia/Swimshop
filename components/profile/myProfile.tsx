@@ -37,10 +37,13 @@ console.log(email)
 
     return(
 <>
-profil iii
-<button className="p-5 bg-blue" onClick={testUpdate}>testa</button>
-<button onClick={saveData}>save data</button>
-<Logout />
+{/* <button className="p-5 bg-blue" onClick={testUpdate}>testa</button>
+<button onClick={saveData}>save data</button> */}
+<div className="flex flex-col  items-center"><h1>Välkommen</h1>
+<p>du kan se dina favoriter <a href="" className="underline">här</a> </p>
+<Logout /></div>
+
+
 </>
     )
        

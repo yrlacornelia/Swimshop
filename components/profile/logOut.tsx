@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useUserAuth } from "../../utils/services";
-import WhiteBtn from "../reusableComponents/whiteBtn";
+import { BlackBtn } from "../reusableComponents/buttons";
 const Logout = () => {
     const { logOut, user } = useUserAuth();
     const router = useRouter();
@@ -13,7 +13,7 @@ const Logout = () => {
       }
     };
     return ( 
-        <WhiteBtn onclick={handleLogout} label={"logout"}/>
+        <BlackBtn onclick={handleLogout} label={"logout"}/>
         
      );
 }

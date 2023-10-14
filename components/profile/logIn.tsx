@@ -1,5 +1,5 @@
 import { useState } from "react";
-import WhiteBtn from "../reusableComponents/whiteBtn";
+import WhiteBtn from "../reusableComponents/buttons";
 import Input from "../reusableComponents/inputfield";
 import { useUserAuth } from "../../utils/services";
 import { useRouter } from "next/router";

@@ -1,5 +1,6 @@
 import Image from "next/image";
-import WhiteBtn from "../reusableComponents/whiteBtn";
+import { WhiteBtn } from "../reusableComponents/buttons";
+import { MouseEvent } from "react";
 const Collaboration = () => {
     return ( 
     <div className="bg-pink  items-center gap-5 w-full  flex md:flex-row flex-col p-4">
@@ -12,7 +13,9 @@ const Collaboration = () => {
     <h1 className="font-bold">SOC</h1>
     <h2>Introducing SOC</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus suspendisse neque adipiscing non facilisis.</p>
-    <WhiteBtn label="SHOP NOW" />
+    <WhiteBtn label="SHOP NOW" onclick={function (event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
+                        throw new Error("Function not implemented.");
+                    } } />
     </div>
 </div>
     </div> );
