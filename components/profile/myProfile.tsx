@@ -40,7 +40,7 @@ console.log(email)
 {/* <button className="p-5 bg-blue" onClick={testUpdate}>testa</button>
 <button onClick={saveData}>save data</button> */}
 <div className="flex flex-col  items-center"><h1>Välkommen</h1>
-<p>du kan se dina favoriter <a href="" className="underline">här</a> </p>
+<p>du kan se dina favoriter <a href="/favorites" className="underline">här</a> </p>
 <Logout /></div>
 
 

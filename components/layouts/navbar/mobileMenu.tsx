@@ -2,7 +2,7 @@ import { useState } from "react";
 import { navlinks } from "./navlinks";
 import Link from "next/link";
 import { Favorites, Profile } from "./icons";
-import Searchbar from "./search";
+import Searchbar from "../../searchpage/search";
 import ShoppingBag from "../../shoppingbag/shoppingbag";
 const MobileMenu = () => {
     const [openNav, setOpenNav] = useState(false);

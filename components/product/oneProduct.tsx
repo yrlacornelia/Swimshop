@@ -1,4 +1,4 @@
-import Searchbar from "../layouts/navbar/search";
+import Searchbar from "../searchpage/search";
 import SlideShow from "./components/slider";
 
 const OneProduct = () => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { navlinks } from "./navlinks";
 import Link from "next/link";
-import Searchbar from "./search";
+import Searchbar from "../../searchpage/search";
 import MobileMenu from "./mobileMenu";
 import { Favorites, Profile } from "./icons";
 import BasicPopover from "./dropdown";

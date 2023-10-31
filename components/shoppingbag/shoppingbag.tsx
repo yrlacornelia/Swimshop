@@ -1,6 +1,7 @@
 import Divider from "@mui/material/Divider";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import MiniCard from "./miniProductcars";
+import { PinkBtn } from "../reusableComponents/buttons";
 
 const ShoppingBag = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -30,11 +31,18 @@ const ShoppingBag = () => {
      <Divider/>
      <div className="h-96">
   <MiniCard src={""} name={"tshirt"} price={60} />
-     </div>
-     <div className="flex justify-between ">
+     </div> 
+     <Divider className="mb-5"/>
+     <div className="flex justify-between px-5 ">
+   
       <h5>SUMMA</h5>
       <h5>1399,00 KR</h5>
      </div>
+     <div className=" px-5"> <PinkBtn label="TILL KASSAN" onclick={function (event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
+              throw new Error("Function not implemented.");
+            } }/>
+            </div>
+    
           </div>
         </div>
   

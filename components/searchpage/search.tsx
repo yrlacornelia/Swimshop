@@ -1,35 +1,34 @@
-import { useEffect, useState } from "react";
 import router from "next/router";
+import { useEffect, useState } from "react";
+import { db, getDocs } from "@/firebaseConfig";
+import {  where, collection, addDoc, query  } from "firebase/firestore";
 const Searchbar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [data, setData] = useState<any[]>([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState<number>(-1); // Initialize with -1
 
+  // useEffect(() => {
+  //   const fetchByProducts = async () => {
+  //     const menProductsQuery = query(collection(db, 'products'), where('category', '==', "women"));
+  //     const menProductsSnapshot = await getDocs(menProductsQuery);
+  //     const menProductsData = menProductsSnapshot.docs.map((doc) => ({
+  //       ...doc.data(),
+  //       id: doc.id
+  //     }));
 
-//    const getProducts = () => {
-//     getDocs(colRef)
-//     .then((snapshot) => {
-//     let arr:any = []
-//     snapshot.docs.forEach((doc) => {
-//       arr.push({...doc.data(), id: doc.id})
-//     })
-    
-//     })
-//     .catch(err => {
-//       console.log(err.message)
-//     })
+  //     setData(menProductsData);
+  //   };
 
-// }
+  //   fetchByProducts();
+  // }, []);
 
   const countries = [
-    { name: "Belgium", continent: "Europe" },
-    { name: "India", continent: "Asia" },
-    { name: "Bolivia", continent: "South America" },
-    { name: "Ghana", continent: "Africa" },
-    { name: "Japan", continent: "Asia" },
-    { name: "Japan", continent: "Asia" },
-    { name: "Japan", continent: "Asia" },
-    { name: "Japan", continent: "Asia" },
+  //  { name: "Belgium", continent: "Europe" },
+    { name: "women" },
+    { name: "men" },
+    { name: "kids" },
+    { name: "Japan" },
+    { name: "Japan" },
   ];
 
   const handleChange = (e:any) => {
@@ -41,8 +40,8 @@ const Searchbar = () => {
   const filteredCountries = countries.filter((country) => {
     const searchTerm = searchInput.toLowerCase();
     return (
-      country.name.toLowerCase().includes(searchTerm) ||
-      country.continent.toLowerCase().includes(searchTerm)
+      country.name.toLowerCase().includes(searchTerm) 
+   // ||  country.toLowerCase().includes(searchTerm)
     );
   });
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {

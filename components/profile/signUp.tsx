@@ -1,5 +1,5 @@
 import { useState } from "react";
-import WhiteBtn from "../reusableComponents/buttons";
+import { BlackBtn } from "../reusableComponents/buttons";
 import Input from "../reusableComponents/inputfield";
 import { useUserAuth } from "../../utils/services";
 import { useRouter } from "next/router";
@@ -26,7 +26,7 @@ const SignUp = () => {
         setPassword(event.target.value);
       };
     
-    return ( <>
+    return ( <div className="m-auto mb-10 text-center">
     <div className=" pb-10 pt-10">
 
     <h3 className="mb-2">SIGN UP </h3>
@@ -34,7 +34,7 @@ const SignUp = () => {
     <Input type="email"  onChange={handleEmailChange} value={email}/>
     <Input type="password" onChange={handlePasswordChange}  value={password}/>
     </div>
-    <WhiteBtn onclick={submit} label={"SIGN UP"} />
+    <BlackBtn onclick={submit} label={"SIGN UP"} />
   </div>
     <div className="relative flex py-5 items-center">
     <div className="flex-grow border-t border-gray-400"></div>
@@ -46,7 +46,7 @@ const SignUp = () => {
     <Link className="underline" href="/profile/login">
    login here
       </Link></div>
-    </> )
+    </div> )
 }
  
 export default SignUp;

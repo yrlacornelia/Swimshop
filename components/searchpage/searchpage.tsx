@@ -28,8 +28,9 @@ const SearchPage = ({item}:Props)=> {
     }, [item]);
     console.log(data)
     return ( <>
-    <div className="text-center">
-        <h2>Search result for "{item}"</h2> 
+    <div className="text-center mt-20">
+      <p>Your result for </p>
+        <h3> <b>"{item}"</b></h3> 
         <div>
     {data.length === 0 ? (
         <p>no results found </p>
