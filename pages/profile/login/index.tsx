@@ -19,7 +19,10 @@ const LoginPage = () => {
          <div className="flex flex-col">
     <Login/>
     </div>
-    ):         (<><Loader/></>) } </>
+    ):         (<>
+    {/* <Loader/> */}
+    </>) 
+    } </>
  );
 }
  

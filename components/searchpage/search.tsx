@@ -6,41 +6,25 @@ const Searchbar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [data, setData] = useState<any[]>([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState<number>(-1); // Initialize with -1
-
-  // useEffect(() => {
-  //   const fetchByProducts = async () => {
-  //     const menProductsQuery = query(collection(db, 'products'), where('category', '==', "women"));
-  //     const menProductsSnapshot = await getDocs(menProductsQuery);
-  //     const menProductsData = menProductsSnapshot.docs.map((doc) => ({
-  //       ...doc.data(),
-  //       id: doc.id
-  //     }));
-
-  //     setData(menProductsData);
-  //   };
-
-  //   fetchByProducts();
-  // }, []);
-
-  const countries = [
-  //  { name: "Belgium", continent: "Europe" },
-    { name: "women" },
+// om man söker blir det error 
+// vill ej ha det som en arrray 
+  const items = [
+    { name: "ol" },
     { name: "men" },
     { name: "kids" },
-    { name: "Japan" },
-    { name: "Japan" },
+    {name: "new in"}
   ];
-
+console.log(searchInput)
   const handleChange = (e:any) => {
     setSearchInput(e.target.value);
   };
   const navigation = () => {
     router.push(`/search/${searchInput}`);
   };
-  const filteredCountries = countries.filter((country) => {
+  const filteredItems = items.filter((items) => {
     const searchTerm = searchInput.toLowerCase();
     return (
-      country.name.toLowerCase().includes(searchTerm) 
+      items.name.toLowerCase().includes(searchTerm) 
    // ||  country.toLowerCase().includes(searchTerm)
     );
   });
@@ -53,14 +37,15 @@ const Searchbar = () => {
     if (event.key === "ArrowDown") {
       event.preventDefault();
       setSelectedSuggestion((prevIndex) =>
-        prevIndex < firstThreeFilteredCountries.length - 1 ? prevIndex + 1 : prevIndex
+        prevIndex < threeFilteredItems.length - 1 ? prevIndex + 1 : prevIndex
       );
     } else if (event.key === "ArrowUp") {
       event.preventDefault();
       setSelectedSuggestion((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
-    } else if (event.key === "Enter" && selectedSuggestion !== -1) {
+    } 
+    else if (event.key === "Enter" && selectedSuggestion !== -1) {
       event.preventDefault();
-      const selectedCountry = firstThreeFilteredCountries[selectedSuggestion];
+      const selectedCountry = threeFilteredItems[selectedSuggestion];
       setSearchInput(selectedCountry.name); // Set the input field with the selected suggestion
       router.push(`/search/${selectedCountry.name}`); // Navigate to the selected suggestion
     }
@@ -68,7 +53,7 @@ const Searchbar = () => {
       console.log("HGU")
     }
   };
-  const firstThreeFilteredCountries = filteredCountries.slice(0, 3);
+  const threeFilteredItems = filteredItems.slice(0, 3);
   return (
     <div className="flex flex-col">
       <div className="relative z-1">
@@ -106,7 +91,7 @@ const Searchbar = () => {
         <div className="absolute bg-white w-full border z-40">
         {searchInput !== "" && (
           <ul className="absolute bg-white w-full border z-40">
-            {firstThreeFilteredCountries.map((item, index) => (
+            {threeFilteredItems.map((item, index) => (
               <li
                 key={index}
                 className={`hover:bg-grey ${selectedSuggestion === index ? "bg-blue-200" : ""}`}

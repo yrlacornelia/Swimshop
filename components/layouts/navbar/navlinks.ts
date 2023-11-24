@@ -25,5 +25,11 @@ export const navlinks = [
     },
     {
         menuId: "contact"
-    }
+    },
+    
 ];
+
+
+export const allLinks =[
+"tops","bottoms","swimsuits","men","women", "kids","accesories", "bikinis"
+]

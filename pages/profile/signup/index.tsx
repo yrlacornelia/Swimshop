@@ -20,7 +20,9 @@ const SignUpPage = () => {
          <div className="flex flex-col">
     <SignUp />
     </div>
-    ):        (<><Loader/></>) } </>
+    ):        (<>
+    {/* <Loader/> */}
+    </>) } </>
  );
 }
  

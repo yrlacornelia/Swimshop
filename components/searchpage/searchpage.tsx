@@ -14,13 +14,19 @@ const SearchPage = ({item}:Props)=> {
     const [data, setData] = useState<any[]>([]); 
     useEffect(() => {
       const fetchByProducts = async () => {
-        const menProductsQuery = query(collection(db, 'products'), where('category', '==', item));
-        const menProductsSnapshot = await getDocs(menProductsQuery);
-        const menProductsData = menProductsSnapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id
-        }));
   
+        const categoryQuery = query(collection(db, 'products'), where('category', '==', item));
+        const itemQuery = query(collection(db, 'products'), where('item', '==', item));
+      
+        const menProductsSnapshot = await Promise.all([getDocs(categoryQuery), getDocs(itemQuery)]);
+      
+        const menProductsData = menProductsSnapshot.flatMap((snapshot) =>
+          snapshot.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id
+          }))
+        );
+      
         setData(menProductsData);
       };
   
@@ -33,7 +39,7 @@ const SearchPage = ({item}:Props)=> {
         <h3> <b>"{item}"</b></h3> 
         <div>
     {data.length === 0 ? (
-        <p>no results found </p>
+        <p>no results fkound </p>
       ) : (
     <div className="flex gap-20 mt-10 items-center justify-center">  
        {data.map((item) => (

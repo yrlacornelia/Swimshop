@@ -22,19 +22,6 @@ console.log(menuId)
   
     );
   }
-
-  // if (matchedMenu.dropdownLinks?.includes(dropdownLink)) {
-  
-  //   return (
-  //     <div>
-  //       <SubCategory dropdown={dropdownLink} item={menuId} />
-  //       <p>
-  //         Menu: {menuId}, Dropdown Link: {dropdownLink}
-  //       </p>
-  //     </div>
-  //   );
-  // }
-
   return <Custom404 />;
 }
 

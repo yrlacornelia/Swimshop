@@ -20,7 +20,9 @@ export default function Profile() {
     <>
       {user ? (
         <MyProfile />) :
-        (<><Loader/></>)
+        (<>
+        {/* <Loader/> */}
+        </>)
         }
     </>
 
