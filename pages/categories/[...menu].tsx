@@ -6,8 +6,7 @@ export default function CategoryPage() {
   const router = useRouter();
   const { menu: routeParams } = router.query;
   const [menuId, dropdownLink]:any = routeParams || [];
-console.log(menuId)
- console.log(dropdownLink)
+
   const matchedMenu = navlinks.find(
     (item) => item.menuId.toLowerCase() === menuId?.toLowerCase()
   );

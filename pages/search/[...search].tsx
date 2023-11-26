@@ -7,8 +7,6 @@ export default function Searchpages() {
   const router = useRouter();
   const { search: routeParams } = router.query;
   const [searchId, dropdownLink]:any = routeParams || [];
-console.log(searchId)
- console.log(dropdownLink)
   const matchedMenu = allLinks.find(
     (item) => item.toLowerCase() === searchId?.toLowerCase()
   );

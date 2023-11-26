@@ -9,12 +9,13 @@ const Searchbar = () => {
 // om man söker blir det error 
 // vill ej ha det som en arrray 
   const items = [
-    { name: "ol" },
     { name: "men" },
     { name: "kids" },
-    {name: "new in"}
+    {name: "tops"},
+    {name: "bottoms"},
+    {name: "swimwear"},
+    {name: "women"},
   ];
-console.log(searchInput)
   const handleChange = (e:any) => {
     setSearchInput(e.target.value);
   };
