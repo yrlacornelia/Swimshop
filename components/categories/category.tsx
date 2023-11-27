@@ -7,6 +7,7 @@ import { db } from "@/firebaseConfig";
 import {  query, where } from "firebase/firestore";
 import ProductCard from "../reusableComponents/productCard";
 import BasicMenu from "./categoryDropdown";
+import { it } from "node:test";
 type Props = {
   item: any;
 };
@@ -45,6 +46,7 @@ const Category = ({item}:Props) => {
     setFilteredData([...sortedData]);
     console.log(filteredData)
   }
+  console.log(data)
 
   function capitalizeFirstLetter(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -67,9 +69,10 @@ const Category = ({item}:Props) => {
     </div>
 
     <div className="flex gap-20 mt-10 items-center justify-center">
-    {filteredData.map((item: { item: string; price: number }) => (
+    {filteredData.map((item: { item: string; price: number; id: number; }) => (
         <ProductCard
-          key={item.item}
+        id={item.id}
+          key={item.id}
           src={"/images/noimage.png"}
           name={item.item}
           price={item.price}

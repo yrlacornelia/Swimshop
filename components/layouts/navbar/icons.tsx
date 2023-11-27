@@ -32,6 +32,7 @@ export const Search = () => {
 }
 
 export const Like = () => {
+  // props. likeproduct 
   const likeProduct = () => {
 
   }

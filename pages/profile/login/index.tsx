@@ -8,6 +8,7 @@ import Loader from "../../../components/reusableComponents/loader";
 const LoginPage = () => {
     const {user}  = useUserAuth();
     const router = useRouter();
+  
   useEffect(() => {
     if (user) {
       router.push('/profile'); 
